@@ -22,19 +22,24 @@ class MainActivity : AppCompatActivity() {
         // btnClick button code here
         forButton.setOnClickListener {
             val wood = forInput.text.toString().trim().uppercase().firstOrNull()
-
-            // main code here
-            val result = when(wood){
-                'O' -> "Oak Price = 200 Tk"
-                'P' -> "Pine Price = 350 Tk"
-                'M' -> "Mahogany Price = 980 Tk"
-                'o' -> "Oak Price= 200 Tk"
-                'p' -> "Pine Price= 350 Tk"
-                'm' -> "Mahogany Price= 980 Tk"
-                else -> "Invalid"
+            
+            if (wood !== null){
+                // main code here
+                val result = when (wood) {
+                    'O' -> "Oak Price = 200 Tk"
+                    'P' -> "Pine Price = 350 Tk"
+                    'M' -> "Mahogany Price = 980 Tk"
+                    'o' -> "Oak Price= 200 Tk"
+                    'p' -> "Pine Price= 350 Tk"
+                    'm' -> "Mahogany Price= 980 Tk"
+                    else -> "Invalid"
+                }
+                forOutput.text = result
+                Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "Please input first", Toast.LENGTH_SHORT).show()
             }
-            forOutput.text = result
-            Toast.makeText(this, result, Toast.LENGTH_SHORT).show()
+            
         }
 
     }
